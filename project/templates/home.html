@@ -1,0 +1,11 @@
+{% extends "extend/base.html" %}{% block content %}
+
+This is the home page.
+<hr>
+<div class="collection-cont">
+    {% for collection in collections %}
+        {% include "include/_collection.html" %}
+    {% endfor %}
+</div>
+
+{% endblock %}

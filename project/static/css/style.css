@@ -1,0 +1,36 @@
+html, body {
+    background-color: white;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:focus {
+    outline: none;
+}
+
+/* collection */
+
+.collection-cont {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 8px;
+}
+
+.collection {
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 16px;
+}

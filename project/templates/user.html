@@ -1,0 +1,16 @@
+{% extends "extend/base.html" %}{% block content %}
+
+
+{% if user %}
+    User: {{ user }}
+    <hr>
+    <div class="collection-cont">
+        {% for collection in user.collections %}
+            {% include "include/_collection.html" %}
+        {% endfor %}
+    </div>
+{% else %}
+    User does not exist!
+{% endif %}
+
+{% endblock %}

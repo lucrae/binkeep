@@ -1,0 +1,56 @@
+:root {
+    --blue: #401bc7;
+    --orange: #d8a22c;
+    --back: black;
+    --front: white;
+
+}
+
+html, body {
+    background-color: var(--back);
+    color: var(--front);
+    font-family: 'Roboto Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* tr:hover {
+    color: var(--back);
+    background-color: var(--front);
+    cursor: default;
+} */
+
+th {
+    color: var(--blue);
+    padding: 2px;
+    padding-right: 16px;
+    text-align: left;
+}
+
+td {
+    padding: 2px;
+    padding-right: 32px;
+}
+
+a {
+    color: var(--front);
+    background-color: var(--blue);
+    text-decoration: none;
+}
+
+.cont {
+    border: 1px solid var(--blue);
+}
+
+.header {
+    padding-left: 2px;
+    background-color: var(--blue);
+    color: var(--back);
+}

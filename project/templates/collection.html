@@ -1,0 +1,14 @@
+{% extends "extend/base.html" %}{% block content %}
+
+{% if collection %}
+    Collection: {{ collection }}
+    <hr>
+    author: 
+    <a href="{{ url_for('main.user', user_username=collection.author.username) }}">
+        {{ collection.author }}
+    </a>
+{% else %}
+    Collection does not exist!
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>LinkBin - Admin</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin_style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+</head>
+
+<body>
+    <i class="fa fa-user-tie"></i> <a href="{{ url_for('admin.index') }}">[admin]</a>
+    <span style="color: var(--orange);">
+        [database] {{ db }}
+    </span>
+    <hr>
+
+    {% for table in tables %}
+        <div class="cont">
+            <div class='header'>
+                {{ table.__tablename__ }}
+                [{{ table }}]
+                ({{ table.query.all()|length }})
+            </div>
+
+            <table>
+                {% if table.query.get(1) %}
+                    <tr>
+                        {% for field in table.query.get(1).get_admin_info() %}
+                            <th>
+                                {{ field }}
+                            </th>
+                        {% endfor %}
+                    </tr>
+                {% endif %}
+                {% for entity in table.query.all() %}
+                <tr>
+                    {% for field in entity.get_admin_info() %}
+                        <td>
+                            {{ entity.get_admin_info().get(field) }}
+                        </td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <br>
+    {% endfor %}
+</body>
+
+</html>
